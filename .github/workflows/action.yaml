@@ -7,8 +7,8 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: build
-        run: docker build -t ${{ secrets.DOCKER_NAME }}/skypro_docker_test:$GIHUB_REF_NAME-$GITHUB_RUN_ID .
+        run: docker build -t ${{ secrets.DOCKER_NAME }}/skypro_docker_test:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
       - name: login
         run: docker login -u ${{ secrets.DOCKER_NAME }} -p ${{ secrets.DOCKER_TOKEN }}
       - name: push
-        run: docker push ${{ secrets.DOCKER_NAME }}/skypro_docker_test:$GIHUB_REF_NAME-$GITHUB_RUN_ID
+        run: docker push ${{ secrets.DOCKER_NAME }}/skypro_docker_test:$GITHUB_REF_NAME-$GITHUB_RUN_ID
