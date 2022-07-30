@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  web:
+    image: 343435/skypro_docker_test:test
+    build: .
+    ports:
+      - "80:8080"
+    restart: always
+    depends_on:
+      - db
+  db:
+    image: postgres
+    environment:
+      - POSTGRESS_PASSWORD=db_password
+      - POSTGRESS_USER=db_user
+      - POSTGRESS_DB=db_name
